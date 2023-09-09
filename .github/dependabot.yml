@@ -8,7 +8,9 @@ updates:
   - package-ecosystem: "NuGet" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
-      interval: "weekly"
-  labels:
+      interval: "daily"
+      time: "08:00"
+      timezone: "Asia/Singapore"
+    labels:
       - "nuget"
       - "dependencies"
