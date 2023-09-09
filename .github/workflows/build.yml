@@ -11,7 +11,7 @@ on:
     types: [opened, synchronize, reopened]
   
 env:
-  PROJECT_PATH: "Med/MediaControls/MediaControls.csproj"
+  PROJECT_PATH: "MediaControls/MediaControls.csproj"
   NUGETCONFIG_PATH: "nuget.config"
  
 jobs:
