@@ -1,6 +1,6 @@
 # MediaControls Is a Custom UI for Dotnet Maui MediaElement
 
-Current it works with Navigation Page, Tabbed page, and Shell page.
+Currently it works with Navigation Page, Tabbed page, and Shell page.
 You can set the page to full screen using MediaControls full screen option
 which is the image button in upper right of screen. Controls show at start
 of playback.
@@ -13,3 +13,54 @@ full screen controls will work properly.
 You don't need to worry about tab bar or nav bar it will be hidden or shown
 with state preserved so that if you go full screen then back again it will
 show the previous state upon restore default page size.
+
+## Example for xaml usage:
+```
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MediaControls.Controls;assembly=MediaControls">
+    <Grid>
+        <controls:MediaControl Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+    </Grid>
+</ContentPage>
+```
+
+You need to add the lines below but you do not need to add the packages for CommunityToolkit or MediaElement
+directly unless you want to use them for something else. But you do need to add the code below in MauiPorgram.cs
+as described for this to work.
+
+## The important part is:
+```
+.UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement().UseMediaControls();
+```
+
+## Example for MauiProgram.cs
+
+```
+using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
+using MediaControls;
+
+namespace MauiApp1
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder.UseMauiApp<App>().ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            }).UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement().UseMediaControls();
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+            return builder.Build();
+        }
+    }
+}
+```
