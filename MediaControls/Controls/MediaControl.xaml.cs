@@ -122,7 +122,6 @@ public partial class MediaControl : ContentView
         mediaElement.PositionChanged += ChangedPosition;
         mediaElement.PositionChanged += OnPositionChanged;
         _ = Moved();
-        BtnPLay.Source = "pause.png";
     }
     #region Methods
     public void SeekTo(TimeSpan position)
@@ -258,7 +257,18 @@ public partial class MediaControl : ContentView
     {
         mediaElement.Aspect = mediaElement.Aspect == Aspect.AspectFit ? Aspect.AspectFill : Aspect.AspectFit;
     }
-
+    private void MediaControl_Loaded(object sender, EventArgs e)
+    {
+        if (mediaElement.CurrentState is MediaElementState.Stopped or
+       MediaElementState.Paused)
+        {
+            BtnPLay.Source = "play.png";
+        }
+        else if (mediaElement.CurrentState == MediaElementState.Playing)
+        {
+            BtnPLay.Source = "pause.png";
+        }
+    }
 
     [RelayCommand]
     public void Tapped(string url)
