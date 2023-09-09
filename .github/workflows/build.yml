@@ -8,10 +8,10 @@ on:
       - '**/*.gitignore'
       - '**/*.gitattributes'
   pull_request:
-    branches: [ main ]
+    types: [opened, synchronize, reopened]
   
 env:
-  PROJECT_PATH: "NerdNewsNavigator2/MediaControls.csproj"
+  PROJECT_PATH: "Med/MediaControls/MediaControls.csproj"
   NUGETCONFIG_PATH: "nuget.config"
  
 jobs:
