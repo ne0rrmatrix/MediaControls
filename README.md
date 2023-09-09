@@ -52,6 +52,7 @@ ShouldAutoPlay, ShouldKeepScreenOn, SeekTo, Aspect, Source, ShouldMute
     xmlns:controls="clr-namespace:MediaControls.Controls;assembly=MediaControls">
     <Grid BackgroundColor="Black">
         <controls:MediaControl
+            x:Name="mediaControl"
             ShouldAutoPlay="True"
             ShouldKeepScreenOn="True"
             ShowCustomControls="True"
