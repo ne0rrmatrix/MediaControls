@@ -1,0 +1,5 @@
+﻿<Project>
+  <ItemGroup>
+    <MauiImage Include="$(MSBuildThisFileDirectory)Resources\Images\*.png" />
+  </ItemGroup>
+</Project>
