@@ -6,7 +6,7 @@ namespace MediaControls.Controls;
 public partial class MediaControl : ContentView
 {
     #region Properties and Bindable Properties
-    public bool IsNotMac { get; set; } = true;
+    public bool IsNotMac { get; set; }
     public string PlayPosition { get; set; }
     public bool MenuIsVisible { get; set; } = false;
 
@@ -116,6 +116,9 @@ public partial class MediaControl : ContentView
         InitializeComponent();
 #if MACCATALYST
         IsNotMac = false;
+#endif
+#if ANDROID || WINDOWS || IOS
+        IsNotMac = true;
 #endif
         PlayPosition = string.Empty;
         mediaElement.PropertyChanged += MediaElement_PropertyChanged;
@@ -294,11 +297,11 @@ public partial class MediaControl : ContentView
     #region Full Screen Functions
     private void TapGestureRecognizer_DoubleTapped(object sender, TappedEventArgs e)
     {
+#if WINDOWS
         if (!PlaybackControls)
         {
             return;
         }
-#if WINDOWS
         SetVideoSize();
 #endif
     }
