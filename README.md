@@ -22,10 +22,11 @@ show the previous state upon restore default page size.
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:MediaControls.Controls;assembly=MediaControls">
-    <Grid>
-        <controls:MediaControl Source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+    <Grid BackgroundColor="Black">
+        <controls:MediaControl Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
     </Grid>
 </ContentPage>
+
 ```
 
 You need to add the lines below but you do not need to add the packages for CommunityToolkit or MediaElement
