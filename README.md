@@ -9,12 +9,38 @@ of playback.
 
 Clicking or tapping on page will cause the controls to appear for 7 seconds.
 In windows double clicking on page will set page to full screen or restore 
-the screen to default size. If you have MediaControls as only element on page 
-full screen controls will work properly.
+the screen to default size. On Android swiping up will enter full screen
+and swiping down will exit full screen. If you have MediaControls as 
+only element on page full screen controls will work properly.
 
-You don't need to worry about tab bar or nav bar it will be hidden or shown
+You don't need to worry about tab bar, title, or nav bar it will be hidden or shown
 with state preserved so that if you go full screen then back again it will
 show the previous state upon restore default page size.
+
+## API Examples:
+Play, Pause, Stop, Mute, UnMute, Fast Forward, Rewind, ShowCustomControls,
+ShouldAutoPlay, ShouldKeepScreenOn, SeekTo, Aspect, Source, ShouldMute
+
+## Code Behind Examples
+```
+  mediaControl.ShouldMute = false;
+        mediaControl.Play();
+        mediaControl.Pause();
+        mediaControl.Stop();
+        mediaControl.ShouldKeepScreenOn = false;
+        mediaControl.ShouldAutoPlay = false;
+        mediaControl.Aspect = Aspect.AspectFit;
+        mediaControl.Source = "https://somevideo.mp4";
+```
+
+## Xaml Examples
+```
+ <controls:MediaControl
+            ShouldAutoPlay="True"
+            ShouldKeepScreenOn="True"
+            ShowCustomControls="True"
+            Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+```
 
 ## Example for xaml usage:
 ```
@@ -44,7 +70,6 @@ as described for this to work.
 ```
 
 ## Example for MauiProgram.cs
-
 ```
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
