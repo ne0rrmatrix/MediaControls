@@ -28,6 +28,7 @@
 		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\LICENSE.txt">
