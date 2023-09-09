@@ -1,6 +1,8 @@
 # MediaControls Is a Custom UI for Dotnet Maui MediaElement
 
 Currently it works with Navigation Page, Tabbed page, and Shell page.
+Windows, Android, IOS and Mac supported. Full screen is supported by Windows,
+android and IOS. It is not supported on Mac Catalyst.
 You can set the page to full screen using MediaControls full screen option
 which is the image button in upper right of screen. Controls show at start
 of playback.
