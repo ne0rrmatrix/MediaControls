@@ -3,10 +3,10 @@
 // See the LICENSE file in the project root for more information.
 
 namespace MediaControls.Controls;
-
 public partial class MediaControl : ContentView
 {
     #region Properties and Bindable Properties
+    public bool IsNotMac { get; set; } = true;
     public string PlayPosition { get; set; }
     public bool MenuIsVisible { get; set; } = false;
 
@@ -118,6 +118,9 @@ public partial class MediaControl : ContentView
     public MediaControl()
     {
         InitializeComponent();
+#if MACCATALYST
+        IsNotMac = false;
+#endif
         PlayPosition = string.Empty;
         mediaElement.PropertyChanged += MediaElement_PropertyChanged;
         mediaElement.PositionChanged += ChangedPosition;

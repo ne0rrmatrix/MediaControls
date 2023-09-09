@@ -39,6 +39,7 @@
                 Clicked="BtnFullScreen_Clicked"
                 HeightRequest="48"
                 HorizontalOptions="End"
+                IsVisible="{Binding IsNotMac}"
                 Source="whitefs.png"
                 VerticalOptions="Start"
                 WidthRequest="48" />
@@ -140,6 +141,7 @@
 
             <Label
                 Margin="30"
+                Padding="10"
                 FontSize="12"
                 HorizontalOptions="Start"
                 SemanticProperties.Description="Label shows playback position for video"
