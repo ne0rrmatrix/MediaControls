@@ -1,9 +1,4 @@
 ﻿using CommunityToolkit.Maui;
-using Microsoft.Maui.LifecycleEvents;
-#if WINDOWS
-using Microsoft.UI;
-using Microsoft.UI.Windowing;
-#endif
 
 namespace MediaControls;
 public static class AppHostBuilderExtensions
