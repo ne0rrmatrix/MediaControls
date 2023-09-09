@@ -25,7 +25,11 @@ show the previous state upon restore default page size.
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:MediaControls.Controls;assembly=MediaControls">
     <Grid BackgroundColor="Black">
-        <controls:MediaControl ShowCustomControls="True" Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+        <controls:MediaControl
+            ShouldAutoPlay="True"
+            ShouldKeepScreenOn="True"
+            ShowCustomControls="True"
+            Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
     </Grid>
 </ContentPage>
 ```
