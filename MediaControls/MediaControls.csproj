@@ -17,10 +17,15 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>MediaControls</Title>
 		<Description>Maui MediaElement custom Controls</Description>
-		<Version>1.2.9</Version>
+		<Version>1.0.0</Version>
 		<PackageId>MediaControls.Maui</PackageId>
 		<Product>MediaControls.Maui</Product>
 		<Authors>ne0rmatrix</Authors>
+		<RepositoryUrl>https://github.com/ne0rrmatrix/MediaControls</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/ne0rrmatrix/MediaControls</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Maui,MediaElement,FullScreen</PackageTags>
+		<PackageReleaseNotes>Initial Release</PackageReleaseNotes>
 		</PropertyGroup>
 	<ItemGroup>
 		<None Include="MediaControls.Maui.targets" Pack="True" PackagePath="buildTransitive\" />
