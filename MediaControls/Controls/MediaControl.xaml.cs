@@ -11,6 +11,7 @@ public partial class MediaControl : ContentView
     public bool MenuIsVisible { get; set; } = false;
 
     private static bool s_fullScreen = false;
+    private bool PlaybackControls { get; set; } = false;
 
     public bool FullScreen { get; set; } = false;
     #endregion
@@ -47,11 +48,6 @@ public partial class MediaControl : ContentView
     {
         var control = (MediaControl)bindableProperty;
         control.mediaElement.ShouldAutoPlay = (bool)newValue;
-    });
-    public static readonly BindableProperty ShouldShowPlaybackControlsProperty = BindableProperty.Create(nameof(ShouldShowPlaybackControls), typeof(bool), typeof(MediaControl), propertyChanged: (bindableProperty, oldValue, newValue) =>
-    {
-        var control = (MediaControl)bindableProperty;
-        control.mediaElement.ShouldShowPlaybackControls = (bool)newValue;
     });
     public static readonly BindableProperty PositionChangedProperty = BindableProperty.Create(nameof(PositionChanged), typeof(EventHandler<MediaPositionChangedEventArgs>), typeof(MediaControl), propertyChanged: (bindableProperty, oldValue, newValue) =>
     {
@@ -94,10 +90,10 @@ public partial class MediaControl : ContentView
         get => GetValue(TitleProperty) as MediaElement;
         set => SetValue(TitleProperty, value);
     }
-    public bool ShouldShowPlaybackControls
+    public bool ShowCustomControls
     {
-        get => (bool)GetValue(ShouldShowPlaybackControlsProperty);
-        set => SetValue(ShouldShowPlaybackControlsProperty, value);
+        get => PlaybackControls;
+        set => PlaybackControls = value;
     }
     public bool ShouldAutoPlay
     {
@@ -243,10 +239,18 @@ public partial class MediaControl : ContentView
     }
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
+        if (!PlaybackControls)
+        {
+            return;
+        }
         _ = Moved();
     }
     private void Button_Pressed(object sender, EventArgs e)
     {
+        if (!PlaybackControls)
+        { 
+            return;
+        }
         MenuIsVisible = !MenuIsVisible;
         OnPropertyChanged(nameof(MenuIsVisible));
     }
@@ -280,6 +284,10 @@ public partial class MediaControl : ContentView
     #region Full Screen Functions
     private void TapGestureRecognizer_DoubleTapped(object sender, TappedEventArgs e)
     {
+        if (!PlaybackControls)
+        {
+            return;
+        }
 #if WINDOWS
         SetVideoSize();
 #endif
@@ -311,7 +319,7 @@ public partial class MediaControl : ContentView
 
     private async Task Moved()
     {
-        if (!FullScreen)
+        if (!FullScreen && PlaybackControls)
         {
             FullScreen = true;
             OnPropertyChanged(nameof(FullScreen));
