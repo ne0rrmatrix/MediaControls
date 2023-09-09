@@ -17,7 +17,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>MediaControls</Title>
 		<Description>Maui MediaElement custom Controls</Description>
-		<Version>1.0.0</Version>
+		<Version>1.2.9</Version>
 		<PackageId>MediaControls.Maui</PackageId>
 		<Product>MediaControls.Maui</Product>
 		<Authors>ne0rmatrix</Authors>
