@@ -96,3 +96,4 @@ namespace MauiApp1
     }
 }
 ```
+Link to nuget package: [Nuget](https://www.nuget.org/packages/MediaControls.Maui/)
