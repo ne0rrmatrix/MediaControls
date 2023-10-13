@@ -103,3 +103,9 @@ namespace MauiApp1
     }
 }
 ```
+On IOS devices plist must be adjusted with included code below:
+
+```
+<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+```
