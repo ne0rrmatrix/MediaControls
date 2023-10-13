@@ -17,7 +17,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>MediaControls</Title>
 		<Description>Maui MediaElement custom Controls</Description>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<PackageId>MediaControls.Maui</PackageId>
 		<Product>MediaControls.Maui</Product>
 		<Authors>ne0rmatrix</Authors>
@@ -49,8 +49,16 @@
 		<MauiImage Include="\Images\*" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 	  <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+	  <PackageReference Include="FullScreenStatus.Maui" Version="1.0.5" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Platforms\Android\" />
+	  <Folder Include="Platforms\iOS\" />
+	  <Folder Include="Platforms\MacCatalyst\" />
+	  <Folder Include="Platforms\Tizen\" />
+	  <Folder Include="Platforms\Windows\" />
 	</ItemGroup>
 </Project>
