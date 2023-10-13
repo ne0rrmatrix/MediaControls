@@ -17,6 +17,10 @@ You don't need to worry about tab bar, title, or nav bar it will be hidden or sh
 with state preserved so that if you go full screen then back again it will
 show the previous state upon restore default page size.
 
+|[MediaControls.Maui](https://www.nuget.org/packages/MediaControls.Maui/)|.NET 7|QualityGate|
+|:---:|:---:|:---:|
+|Stable|[![.NET 7](https://buildstats.info/nuget/MediaControls.Maui?packageVersion1.0.1)](https://www.nuget.org/packages/MediaControls.Maui/1.0.1)|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ne0rrmatrix_MauiPageFullScreen&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ne0rrmatrix_MauiPageFullScreen)|
+
 ## API Examples:
 Play, Pause, Stop, Mute, UnMute, Fast Forward, Rewind, ShowCustomControls,
 ShouldAutoPlay, ShouldKeepScreenOn, SeekTo, Aspect, Source, ShouldMute
@@ -46,10 +50,10 @@ ShouldAutoPlay, ShouldKeepScreenOn, SeekTo, Aspect, Source, ShouldMute
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="MauiApp1.MainPage"
+    x:Class="SampleApp.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MediaControls.Controls;assembly=MediaControls">
+    xmlns:controls="clr-namespace:MediaControls.Control;assembly=MediaControls">
     <Grid BackgroundColor="Black">
         <controls:MediaControl
             x:Name="mediaControl"
@@ -58,7 +62,9 @@ ShouldAutoPlay, ShouldKeepScreenOn, SeekTo, Aspect, Source, ShouldMute
             ShowCustomControls="True"
             Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
     </Grid>
+
 </ContentPage>
+
 ```
 
 You need to add the lines below but you do not need to add the packages for CommunityToolkit or MediaElement
@@ -67,18 +73,19 @@ as described for this to work.
 
 ## The important part is:
 ```
-.UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement().UseMediaControls();
+.UseMauiCommunityToolkit().UseFullScreen().UseMauiCommunityToolkitMediaElement().UseMediaControls();
 ```
 
 ## Example for MauiProgram.cs
 ```
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using MauiPageFullScreen;
 using MediaControls;
 
 namespace MauiApp1
 {
-    public static class MauiProgram
+       public static class MauiProgram
     {
         public static MauiApp CreateMauiApp()
         {
@@ -87,7 +94,7 @@ namespace MauiApp1
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-            }).UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement().UseMediaControls();
+            }).UseMauiCommunityToolkit().UseFullScreen().UseMauiCommunityToolkitMediaElement().UseMediaControls();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
@@ -96,4 +103,9 @@ namespace MauiApp1
     }
 }
 ```
-Link to nuget package: [Nuget](https://www.nuget.org/packages/MediaControls.Maui/)
+On IOS devices plist must be adjusted with included code below:
+
+```
+<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+```

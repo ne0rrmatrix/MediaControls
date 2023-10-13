@@ -2,7 +2,9 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-namespace MediaControls.Controls;
+using MauiPageFullScreen;
+
+namespace MediaControls.Control;
 public partial class MediaControl : ContentView
 {
     #region Properties and Bindable Properties
@@ -309,23 +311,23 @@ public partial class MediaControl : ContentView
     {
         if (e.Direction == SwipeDirection.Up)
         {
-            DeviceService.FullScreen();
+            Controls.FullScreen();
         }
         if (e.Direction == SwipeDirection.Down)
         {
-            DeviceService.RestoreScreen();
+            Controls.RestoreScreen();
         }
     }
     private static void SetVideoSize()
     {
         if (s_fullScreen)
         {
-            DeviceService.RestoreScreen();
+            Controls.RestoreScreen();
             s_fullScreen = false;
         }
         else
         {
-            DeviceService.FullScreen();
+            Controls.FullScreen();
             s_fullScreen = true;
         }
     }

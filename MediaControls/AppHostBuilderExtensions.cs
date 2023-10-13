@@ -6,7 +6,7 @@ public static class AppHostBuilderExtensions
     public static MauiAppBuilder UseMediaControls(this MauiAppBuilder builder)
     {
 		builder
-	   .UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement();
+	   .UseMauiCommunityToolkit().UseMauiCommunityToolkitMediaElement().UseFullScreen();
 #if WINDOWS
 		Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
 		{
