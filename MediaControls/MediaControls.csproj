@@ -49,16 +49,18 @@
 		<MauiImage Include="\Images\*" />
 	</ItemGroup>
 	<ItemGroup>
+	  <AndroidAsset Remove="Platforms\**" />
+	  <AndroidResource Remove="Platforms\**" />
+	  <Compile Remove="Platforms\**" />
+	  <EmbeddedResource Remove="Platforms\**" />
+	  <MauiCss Remove="Platforms\**" />
+	  <MauiXaml Remove="Platforms\**" />
+	  <None Remove="Platforms\**" />
+	</ItemGroup>
+	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="6.0.0" />
 	  <PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="2.0.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
 	  <PackageReference Include="FullScreenStatus.Maui" Version="1.0.5" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Platforms\Android\" />
-	  <Folder Include="Platforms\iOS\" />
-	  <Folder Include="Platforms\MacCatalyst\" />
-	  <Folder Include="Platforms\Tizen\" />
-	  <Folder Include="Platforms\Windows\" />
 	</ItemGroup>
 </Project>
